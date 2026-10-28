@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agung Brillian | Senior .NET & Enterprise Backend Developer Portfolio</title>
+    <meta name="description" content="Portfolio Senior .NET & Enterprise Backend Developer dengan 10+ tahun pengalaman dalam arsitektur sistem enterprise, optimasi database, dan otomatisasi workflow bisnis.">
+    
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            200: '#bae0fd',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                            800: '#0c4a6e',
+                            900: '#082f49',
+                        },
+                        slate: {
+                            850: '#0f172a',
+                            900: '#090d16',
+                            950: '#040711',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+
+        /* Print styles for export to PDF */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-block {
+                break-inside: avoid;
+            }
+            .bg-slate-900, .bg-slate-950, .bg-slate-850 {
+                background: white !important;
+                color: #0f172a !important;
+                border-color: #cbd5e1 !important;
+            }
+            .text-white, .text-slate-200, .text-slate-300 {
+                color: #0f172a !important;
+            }
+            .text-slate-400 {
+                color: #475569 !important;
+            }
+            a {
+                text-decoration: none !important;
+                color: #0369a1 !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 font-sans selection:bg-brand-500 selection:text-white antialiased min-h-screen flex flex-col">
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#hero" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center font-heading font-bold text-white shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                    AB
+                </div>
+                <div>
+                    <span class="font-heading font-bold text-lg text-white group-hover:text-brand-400 transition-colors">Agung Brillian</span>
+                    <span class="block text-xs text-slate-400">Senior .NET & Business System Specialist</span>
+                </div>
+            </a>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#impact" class="hover:text-brand-400 transition-colors">Key Metrics</a>
+                <a href="#case-studies" class="hover:text-brand-400 transition-colors">Studi Kasus Proyek</a>
+                <a href="#skills" class="hover:text-brand-400 transition-colors">Kompetensi Teknis</a>
+                <a href="#experience" class="hover:text-brand-400 transition-colors">Pengalaman Kerja</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <button onclick="window.print()" title="Print / Simpan sebagai PDF" class="px-3.5 py-1.5 rounded-lg border border-slate-700 bg-slate-900/60 hover:bg-slate-800 text-xs font-medium text-slate-200 flex items-center gap-2 transition-all">
+                    <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                    <span>Print / PDF</span>
+                </button>
+                <a href="https://wa.me/6285773406474?text=Halo%20Mas%20Agung,%20saya%20tertarik%20dengan%20profil%20dan%20portofolio%20Anda." target="_blank" class="px-4 py-1.5 rounded-lg bg-brand-600 hover:bg-brand-500 text-xs font-semibold text-white shadow-md shadow-brand-600/30 transition-all flex items-center gap-2">
+                    <span>Hubungi</span>
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section id="hero" class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+            <!-- Background Glows -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-brand-600/15 rounded-full blur-[120px] pointer-events-none"></div>
+            <div class="absolute top-1/3 left-1/4 w-[300px] h-[300px] bg-indigo-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div class="max-w-3xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-xs font-medium text-brand-400 mb-6 shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>Open to Senior Engineering / Tech Lead Roles</span>
+                    </div>
+
+                    <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] mb-6">
+                        Architecting Scalable <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-indigo-400">Enterprise Systems</span> & Business Automation.
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-8 font-normal">
+                        Halo! Saya <strong>Agung Brillian</strong>, Senior Fullstack .NET Developer & IT Specialist dengan <span class="text-white font-semibold underline decoration-brand-500 underline-offset-4">10+ tahun pengalaman</span> membangun aplikasi enterprise berkinerja tinggi, mengoptimasi database SQL Server berskala besar, memimpin tim engineer, serta mengotomasi alur kerja korporasi bernilai tinggi.
+                    </p>
+
+                    <!-- Contact & Location Badges -->
+                    <div class="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-slate-400 mb-8">
+                        <div class="flex items-center gap-1.5 bg-slate-900/80 px-3 py-1.5 rounded-lg border border-slate-800">
+                            <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span>Bekasi / Jakarta, Indonesia</span>
+                        </div>
+                        <a href="mailto:agungbrillian89@gmail.com" class="flex items-center gap-1.5 bg-slate-900/80 px-3 py-1.5 rounded-lg border border-slate-800 hover:border-brand-500/50 hover:text-white transition-colors">
+                            <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <span>agungbrillian89@gmail.com</span>
+                        </a>
+                        <a href="https://linkedin.com/in/agungbrillian" target="_blank" class="flex items-center gap-1.5 bg-slate-900/80 px-3 py-1.5 rounded-lg border border-slate-800 hover:border-brand-500/50 hover:text-white transition-colors">
+                            <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            <span>in/agungbrillian</span>
+                        </a>
+                        <a href="https://wa.me/6285773406474" target="_blank" class="flex items-center gap-1.5 bg-slate-900/80 px-3 py-1.5 rounded-lg border border-slate-800 hover:border-brand-500/50 hover:text-white transition-colors">
+                            <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            <span>+62857-7340-6474</span>
+                        </a>
+                    </div>
+
+                    <!-- Call To Actions -->
+                    <div class="flex flex-wrap items-center gap-4 no-print">
+                        <a href="#case-studies" class="px-6 py-3 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-medium text-sm shadow-lg shadow-brand-500/25 transition-all flex items-center gap-2.5">
+                            <span>Jelajahi Studi Kasus Proyek</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                        </a>
+                        <a href="#experience" class="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 font-medium text-sm transition-all flex items-center gap-2">
+                            <span>Track Record Karir</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Metrics & Business Impact -->
+        <section id="impact" class="py-12 bg-slate-900/60 border-y border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                    <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 print-block">
+                        <div class="font-heading font-extrabold text-3xl sm:text-4xl text-brand-400 mb-1">10+ Tahun</div>
+                        <div class="text-xs sm:text-sm font-semibold text-white mb-1">Rekam Jejak Software Engineering</div>
+                        <p class="text-xs text-slate-400">Merancang sistem enterprise berskala korporat, dari .NET Framework hingga arsitektur modern.</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 print-block">
+                        <div class="font-heading font-extrabold text-3xl sm:text-4xl text-emerald-400 mb-1">60% Pangkas Waktu</div>
+                        <div class="text-xs sm:text-sm font-semibold text-white mb-1">Otomasi Reporting Korporat</div>
+                        <p class="text-xs text-slate-400">Menghilangkan workflow manual dengan engine ClosedXML & EPPlus berkecepatan tinggi.</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 print-block">
+                        <div class="font-heading font-extrabold text-3xl sm:text-4xl text-indigo-400 mb-1">+25% Efisiensi</div>
+                        <div class="text-xs sm:text-sm font-semibold text-white mb-1">Kecepatan Delivery Tim</div>
+                        <p class="text-xs text-slate-400">Memimpin 4 engineer, menetapkan standard reusable component & code review berkala.</p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 print-block">
+                        <div class="font-heading font-extrabold text-3xl sm:text-4xl text-amber-400 mb-1">99.9% Uptime</div>
+                        <div class="text-xs sm:text-sm font-semibold text-white mb-1">High-Traffic Public Portal</div>
+                        <p class="text-xs text-slate-400">Keberhasilan arsitektur & tuning database pada portal resmi Polri.go.id saat peak load.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Enterprise Case Studies (STAR Format) -->
+        <section id="case-studies" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mb-14">
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mb-4">
+                        Studi Kasus Proyek Enterprise
+                    </h2>
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                        Pendekatan berbasis metode <strong>STAR</strong> (<em>Situation, Task, Action, Result</em>) untuk menunjukkan bagaimana saya menyelesaikan masalah bisnis nyata melalui rekayasa sistem yang andal.
+                    </p>
+                </div>
+
+                <!-- Case Study Cards -->
+                <div class="space-y-12">
+
+                    <!-- Case Study 1: TRUST ERP Core System -->
+                    <div class="rounded-3xl bg-slate-900/70 border border-slate-800/80 p-6 sm:p-8 lg:p-10 relative overflow-hidden print-block shadow-xl">
+                        <div class="absolute top-0 right-0 w-80 h-80 bg-brand-500/10 rounded-full blur-[90px] pointer-events-none"></div>
+
+                        <div class="flex flex-wrap items-center justify-between gap-4 mb-6 pb-6 border-b border-slate-800">
+                            <div>
+                                <span class="px-3 py-1 rounded-md bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-semibold uppercase tracking-wider">
+                                    Core ERP & Fleet Leasing
+                                </span>
+                                <h3 class="font-heading text-2xl sm:text-3xl font-bold text-white mt-2">
+                                    Enterprise Vehicle Delivery, BSTK & Invoicing System (TRUST)
+                                </h3>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                                    PT Takari Kokoh Sejahtera &bull; 2022 - Sekarang &bull; Lead Architect & Specialist
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 text-xs font-mono">
+                                <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">C# / VB.NET</span>
+                                <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">ASP.NET MVC</span>
+                                <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">SQL Server</span>
+                                <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">REST API</span>
+                                <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">ClosedXML</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div class="space-y-4 lg:col-span-2">
+                                <div>
+                                    <h4 class="text-xs font-bold text-brand-400 uppercase tracking-wider mb-1">Tantangan & Problem Bisnis</h4>
+                                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                        Operasional penyewaan dan pembiayaan ribuan armada korporat menghadapi kendala lambatnya verifikasi serah terima kendaraan (BSTK), tracking SLA pengiriman yang tersebar di spreadsheet manual, serta proses invoice bulanan yang rentan kalkulasi ganda antara tanggal efektif kontrak dan periode penagihan.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h4 class="text-xs font-bold text-brand-400 uppercase tracking-wider mb-1">Arsitektur & Solusi Teknis yang Dibangun</h4>
+                                    <ul class="text-xs sm:text-sm text-slate-300 space-y-2 list-disc list-inside">
+                                        <li><strong>Modul BSTK & Delivery Management:</strong> Mengembangkan modul serah terima kendaraan real-time lengkap dengan upload dokumen terenkripsi, SLA tracking visual, dan otomatisasi notifikasi status armada.</li>
+                                        <li><strong>Invoicing & Billing Engine:</strong> Merancang algoritma kalkulasi invoice otomatis yang tersinkronisasi langsung dengan tanggal efektif kontrak, CoreTax compliance, dan integrasi digital signature approval workflow.</li>
+                                        <li><strong>Optimasi Query & Stored Procedure:</strong> Merestrukturisasi puluhan tabel inti dengan index tuning dan pembuatan stored procedure terisolasi untuk mempercepat loading dashboard monitoring sebesar 40%.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="rounded-2xl bg-slate-950/70 border border-slate-800/90 p-5 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-3">Hasil & Dampak Bisnis</h4>
+                                    <div class="space-y-3">
+                                        <div class="border-l-2 border-emerald-500 pl-3">
+                                            <div class="text-white font-semibold text-sm">SLA Visibility 100%</div>
+                                            <div class="text-xs text-slate-400">Tim operasional dapat memantau keterlambatan unit secara real-time.</div>
+                                        </div>
+                                        <div class="border-l-2 border-emerald-500 pl-3">
+                                            <div class="text-white font-semibold text-sm">Zero Billing Discrepancy</div>
+                                            <div class="text-xs text-slate-400">Otomasi validasi tanggal kontrak menghapus selisih tagihan manual.</div>
+                                        </div>
+                                        <div class="border-l-2 border-emerald-500 pl-3">
+                                            <div class="text-white font-semibold text-sm">Digital Approval Audit-Ready</div>
+                                            <div class="text-xs text-slate-400">Persetujuan dokumen kini memiliki jejak digital audit yang sah.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case Study 2: Enterprise Automated Reporting Engine -->
+                    <div class="rounded-3xl bg-slate-900/70 border border-slate-800/80 p-6 sm:p-8 lg:p-10 relative overflow-hidden print-block shadow-xl">
+                        <div class="flex flex-wrap items-center justify-between gap-4 mb-6 pb-6 border-b border-slate-800">
+                            <div>
+                                <span class="px-3 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold uppercase tracking-wider">
+                                    High-Volume Data Automation
+                                </span>
+                                <h3 class="font-heading text-2xl sm:text-3xl font-bold text-white mt-2">
+                                    Automated Reporting & Dynamic Excel Processing Platform
+                                </h3>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                                    PT Takari Kokoh Sejahtera &bull; 2023 - 2025 &bull; Technical Lead
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 text-xs font-mono">
+                                <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">VB.NET / C#</span>
+                                <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">SQL Server</span>
+                                <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">ClosedXML</span>
+                                <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">EPPlus</span>
+                                <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Batch Processing</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div class="space-y-4 lg:col-span-2">
+                                <div>
+                                    <h4 class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1">Tantangan & Problem Bisnis</h4>
+                                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                        Tim Finance dan Operasional membutuhkan laporan konsolidasi dari ratusan ribu baris data transaksi setiap hari. Pembuatan laporan manual memakan waktu berjam-jam, membebani server database, dan sering mengalami <em>Out of Memory</em> saat diekspor menggunakan library bawaan standar.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h4 class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1">Arsitektur & Solusi Teknis yang Dibangun</h4>
+                                    <ul class="text-xs sm:text-sm text-slate-300 space-y-2 list-disc list-inside">
+                                        <li><strong>Memory-Efficient Excel Generation:</strong> Mengimplementasikan arsitektur streaming generator menggunakan <em>ClosedXML</em> dan <em>EPPlus</em>, sehingga mampu mengekspor puluhan ribu baris data tabular dengan pemakaian RAM minimal.</li>
+                                        <li><strong>Two-Way Batch Processing:</strong> Menyediakan fitur parser Excel dinamis untuk mengunggah ratusan data mutasi bank dan alokasi piutang langsung tervalidasi ke database SQL Server secara otomatis.</li>
+                                        <li><strong>Scheduled Background Dispatcher:</strong> Mengotomasi distribusi laporan harian dan bulanan langsung ke email manajemen tanpa perlu campur tangan staf manual.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="rounded-2xl bg-slate-950/70 border border-slate-800/90 p-5 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-3">Hasil & Dampak Bisnis</h4>
+                                    <div class="space-y-3">
+                                        <div class="border-l-2 border-emerald-500 pl-3">
+                                            <div class="text-white font-semibold text-sm">Pangkas Waktu 60%</div>
+                                            <div class="text-xs text-slate-400">Waktu pembuatan laporan bulanan dipangkas drastis dari 3 hari menjadi hitungan menit.</div>
+                                        </div>
+                                        <div class="border-l-2 border-emerald-500 pl-3">
+                                            <div class="text-white font-semibold text-sm">Eliminasi Human Error</div>
+                                            <div class="text-xs text-slate-400">Validasi otomatis mencegah salah input alokasi pembayaran & nomor rekening.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case Study 3: Enterprise Document Generation Platform (Reycom) -->
+                    <div class="rounded-3xl bg-slate-900/70 border border-slate-800/80 p-6 sm:p-8 lg:p-10 relative overflow-hidden print-block shadow-xl">
+                        <div class="flex flex-wrap items-center justify-between gap-4 mb-6 pb-6 border-b border-slate-800">
+                            <div>
+                                <span class="px-3 py-1 rounded-md bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider">
+                                    Banking & Insurance Solutions
+                                </span>
+                                <h3 class="font-heading text-2xl sm:text-3xl font-bold text-white mt-2">
+                                    High-Volume Enterprise Document Processing Platform
+                                </h3>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                                    PT Reycom Document Solusi &bull; 2017 - 2022 &bull; Senior IT Programmer
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 text-xs font-mono">
+                                <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">C# / VB.NET</span>
+                                <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">OpenText HP Exstream</span>
+                                <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">SQL Server</span>
+                                <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">REST API</span>
+                                <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">RTF / Word / PDF</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div class="space-y-4 lg:col-span-2">
+                                <div>
+                                    <h4 class="text-xs font-bold text-indigo-400 uppercase tracking-wider mb-1">Tantangan & Problem Bisnis</h4>
+                                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                        Klien perbankan dan asuransi korporat membutuhkan sistem penerbitan dokumen polis, surat penagihan, dan kontrak hukum berskala puluhan ribu lembar per siklus batch dengan kepatuhan format legal yang sangat ketat (RTF, Word, dan PDF).
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h4 class="text-xs font-bold text-indigo-400 uppercase tracking-wider mb-1">Arsitektur & Solusi Teknis yang Dibangun</h4>
+                                    <ul class="text-xs sm:text-sm text-slate-300 space-y-2 list-disc list-inside">
+                                        <li><strong>Integrasi OpenText HP Exstream:</strong> Mengembangkan middleware backend berbasis .NET untuk menjembatani query database transaksional SQL Server dengan engine rendering dokumen enterprise OpenText.</li>
+                                        <li><strong>Dynamic Template Engine:</strong> Merancang komponen reusable untuk mempopulasi variabel data nasabah, tabel amortisasi pinjaman, dan barcode pelacakan ke dalam template dokumen secara instan.</li>
+                                        <li><strong>Modernisasi Sistem Legacy:</strong> Melakukan refactoring modul desktop/web legacy menjadi layanan berbasis REST API yang lebih mudah diintegrasikan oleh sistem perbankan pihak ketiga.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="rounded-2xl bg-slate-950/70 border border-slate-800/90 p-5 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="text-xs font-bold text-indigo-400 uppercase tracking-wider mb-3">Hasil & Dampak Bisnis</h4>
+                                    <div class="space-y-3">
+                                        <div class="border-l-2 border-indigo-500 pl-3">
+                                            <div class="text-white font-semibold text-sm">4x Throughput Peningkatan</div>
+                                            <div class="text-xs text-slate-400">Kecepatan rendering dokumen batch meningkat signifikan tanpa server bottleneck.</div>
+                                        </div>
+                                        <div class="border-l-2 border-indigo-500 pl-3">
+                                            <div class="text-white font-semibold text-sm">Kepatuhan Regulasi 100%</div>
+                                            <div class="text-xs text-slate-400">Format output dokumen legal memenuhi standar audit industri perbankan nasional.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case Study 4: Polri.go.id Portal (Inet Global Indo) -->
+                    <div class="rounded-3xl bg-slate-900/70 border border-slate-800/80 p-6 sm:p-8 lg:p-10 relative overflow-hidden print-block shadow-xl">
+                        <div class="flex flex-wrap items-center justify-between gap-4 mb-6 pb-6 border-b border-slate-800">
+                            <div>
+                                <span class="px-3 py-1 rounded-md bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold uppercase tracking-wider">
+                                    Public Sector & High-Traffic Web
+                                </span>
+                                <h3 class="font-heading text-2xl sm:text-3xl font-bold text-white mt-2">
+                                    Development & Maintenance of Indonesian National Police Web Portal (Polri.go.id)
+                                </h3>
+                                <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                                    PT Inet Global Indo &bull; 2016 - 2017 &bull; R&D Developer / Tech Consultant
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 text-xs font-mono">
+                                <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">ASP.NET MVC (C#)</span>
+                                <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">SQL Server</span>
+                                <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Web Security (OWASP)</span>
+                                <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Caching & Optimization</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div class="space-y-4 lg:col-span-2">
+                                <div>
+                                    <h4 class="text-xs font-bold text-amber-400 uppercase tracking-wider mb-1">Tantangan & Problem Bisnis</h4>
+                                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                        Sebagai portal informasi resmi institusi penegak hukum nasional, situs dituntut mampu melayani jutaan kunjungan masyarakat dengan keamanan ketat dari upaya peretasan serta keandalan tinggi saat rilis informasi publik penting.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h4 class="text-xs font-bold text-amber-400 uppercase tracking-wider mb-1">Arsitektur & Solusi Teknis yang Dibangun</h4>
+                                    <ul class="text-xs sm:text-sm text-slate-300 space-y-2 list-disc list-inside">
+                                        <li><strong>Arsitektur MVC Modular:</strong> Membangun modul manajemen konten berita, layanan publik, dan integrasi backend yang terisolasi untuk memudahkan scaling berkala.</li>
+                                        <li><strong>Penerapan Standar Keamanan OWASP:</strong> Mencegah serangan siber umum seperti SQL Injection, Cross-Site Scripting (XSS), dan brute-force authentication.</li>
+                                        <li><strong>Optimasi Caching & Database:</strong> Menetapkan layer caching cerdas pada objek query yang sering diakses masyarakat untuk menjaga responsivitas server tetap stabil di bawah beban puncak.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="rounded-2xl bg-slate-950/70 border border-slate-800/90 p-5 flex flex-col justify-between">
+                                <div>
+                                    <h4 class="text-xs font-bold text-amber-400 uppercase tracking-wider mb-3">Hasil & Dampak Bisnis</h4>
+                                    <div class="space-y-3">
+                                        <div class="border-l-2 border-amber-500 pl-3">
+                                            <div class="text-white font-semibold text-sm">99.9% Uptime Tercapai</div>
+                                            <div class="text-xs text-slate-400">Situs tetap tangguh dan responsif melayani jutaan masyarakat Indonesia.</div>
+                                        </div>
+                                        <div class="border-l-2 border-amber-500 pl-3">
+                                            <div class="text-white font-semibold text-sm">Apresiasi Kualitas Institusi</div>
+                                            <div class="text-xs text-slate-400">Mendapatkan pengakuan atas stabilitas teknis portal web pemerintahan terpercaya.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Competencies & Skills Architecture -->
+        <section id="skills" class="py-20 bg-slate-900/40 border-t border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mb-14">
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mb-4">
+                        Matriks Keahlian & Teknologi
+                    </h2>
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                        Kombinasi mendalam antara rekayasa backend, optimasi database, otomatisasi pelaporan, dan kepemimpinan tim teknis.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Category 1 -->
+                    <div class="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 print-block">
+                        <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400 mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                        <h3 class="font-heading font-bold text-white text-base mb-2">Backend & Frameworks</h3>
+                        <p class="text-xs text-slate-400 mb-4">Membangun arsitektur backend andal, scalable, dan maintainable.</p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">C# (.NET)</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">VB.NET MVC</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">ASP.NET MVC</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">RESTful APIs</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">Python (Odoo)</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 2 -->
+                    <div class="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 print-block">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1.5 3 3.5 3h9c2 0 3.5-1 3.5-3V7c0-2-1.5-3-3.5-3h-9C5.5 4 4 5 4 7zm0 5h16M9 4v16"></path></svg>
+                        </div>
+                        <h3 class="font-heading font-bold text-white text-base mb-2">Databases & Query Tuning</h3>
+                        <p class="text-xs text-slate-400 mb-4">Optimasi query kompleks dan pemodelan data transaksional berat.</p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">Microsoft SQL Server</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">Query Optimization</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">Stored Procedures</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">Index Tuning</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">PostgreSQL</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">Data Migration</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 3 -->
+                    <div class="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 print-block">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        </div>
+                        <h3 class="font-heading font-bold text-white text-base mb-2">Automation & Document Engine</h3>
+                        <p class="text-xs text-slate-400 mb-4">Memangkas ratusan jam kerja manual lewat engine otomasi dokumen.</p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">ClosedXML</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">EPPlus</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">OpenText HP Exstream</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">Dynamic PDF & Word</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">iTextSharp</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 4 -->
+                    <div class="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 print-block">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path></svg>
+                        </div>
+                        <h3 class="font-heading font-bold text-white text-base mb-2">Integration & Enterprise ERP</h3>
+                        <p class="text-xs text-slate-400 mb-4">Koneksi antarsistem bisnis, compliance perpajakan, dan portal SSO.</p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">Odoo ERP Customization</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">Digital Signature Workflow</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">CoreTax Integration</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">SSO Portal</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">MS Graph API</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 5 -->
+                    <div class="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 print-block">
+                        <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </div>
+                        <h3 class="font-heading font-bold text-white text-base mb-2">Leadership & Methodology</h3>
+                        <p class="text-xs text-slate-400 mb-4">Pengawalan delivery proyek tepat waktu dan bimbingan tim teknis.</p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">Team Leadership (4 Devs)</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">Agile (Scrum) & SDLC</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">Code Review & Standards</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">Developer Mentoring</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">Stakeholder Collaboration</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 6 -->
+                    <div class="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 print-block">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <h3 class="font-heading font-bold text-white text-base mb-2">Tools & Environments</h3>
+                        <p class="text-xs text-slate-400 mb-4">Lingkungan pengembangan, version control, dan server deployment.</p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">Visual Studio</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">Git Version Control</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">IIS Web Server</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">Postman</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-200">Microsoft Azure</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Work History Timeline -->
+        <section id="experience" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mb-14">
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mb-4">
+                        Pengalaman Kerja Profesional
+                    </h2>
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                        Perjalanan karir selama 10+ tahun dalam industri teknologi finansial, armada korporat, solusi dokumen, dan riset perangkat lunak.
+                    </p>
+                </div>
+
+                <div class="relative border-l border-slate-800 ml-4 sm:ml-6 space-y-12">
+
+                    <!-- Role 1 -->
+                    <div class="relative pl-6 sm:pl-8 group print-block">
+                        <div class="absolute -left-2.5 top-1.5 w-5 h-5 rounded-full bg-slate-950 border-4 border-brand-500 group-hover:scale-125 transition-transform"></div>
+                        <div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+                            <h3 class="font-heading text-lg sm:text-xl font-bold text-white">Supervisor IT Development Specialist</h3>
+                            <span class="px-2.5 py-1 rounded-md bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-semibold">2022 - Sekarang (Jakarta Barat)</span>
+                        </div>
+                        <div class="text-sm font-semibold text-slate-300 mb-4">PT Takari Kokoh Sejahtera</div>
+                        <ul class="text-xs sm:text-sm text-slate-400 space-y-2 list-disc list-inside leading-relaxed">
+                            <li>Memimpin tim yang terdiri dari 4 developer dalam merilis lebih dari 10 aplikasi enterprise korporat, meningkatkan efisiensi delivery proyek sebesar <strong>25%</strong>.</li>
+                            <li>Merancang dan mengimplementasikan arsitektur aplikasi berskala enterprise menggunakan <strong>C#, VB.NET, ASP.NET MVC, SQL Server, dan integrasi REST API</strong>.</li>
+                            <li>Mengotomasi alur kerja pelaporan internal, memangkas beban kerja laporan manual sebesar <strong>60%</strong> melalui otomatisasi Excel dan optimasi proses backend.</li>
+                            <li>Melakukan optimasi performa database SQL Server dan stored procedure untuk meningkatkan keandalan sistem dan responsivitas operasional.</li>
+                            <li>Memodernisasi aplikasi enterprise legacy dengan membangun komponen reusable dan menyederhanakan alur kerja pengembangan.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Role 2 -->
+                    <div class="relative pl-6 sm:pl-8 group print-block">
+                        <div class="absolute -left-2.5 top-1.5 w-5 h-5 rounded-full bg-slate-950 border-4 border-indigo-500 group-hover:scale-125 transition-transform"></div>
+                        <div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+                            <h3 class="font-heading text-lg sm:text-xl font-bold text-white">Senior IT Programmer</h3>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-semibold">2017 - 2022 (Jakarta Timur)</span>
+                        </div>
+                        <div class="text-sm font-semibold text-slate-300 mb-4">PT Reycom Document Solusi</div>
+                        <ul class="text-xs sm:text-sm text-slate-400 space-y-2 list-disc list-inside leading-relaxed">
+                            <li>Mengembangkan aplikasi web dan desktop enterprise menggunakan C#, VB.NET, ASP.NET MVC, dan SQL Server untuk mendukung operasional bisnis lintas departemen.</li>
+                            <li>Merancang dan mengintegrasikan REST API serta sistem enterprise pihak ketiga untuk mempercepat pertukaran data dan meminimalkan pemrosesan manual.</li>
+                            <li>Mengoptimalkan database SQL Server, stored procedures, dan aplikasi legacy untuk mendongkrak performa serta maintainability jangka panjang.</li>
+                            <li>Bekerja sama erat dengan business users dan tim lintas fungsional dalam menganalisis kebutuhan sistem berdasarkan Software Development Life Cycle (SDLC).</li>
+                        </ul>
+                    </div>
+
+                    <!-- Role 3 -->
+                    <div class="relative pl-6 sm:pl-8 group print-block">
+                        <div class="absolute -left-2.5 top-1.5 w-5 h-5 rounded-full bg-slate-950 border-4 border-slate-700 group-hover:scale-125 transition-transform"></div>
+                        <div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+                            <h3 class="font-heading text-lg sm:text-xl font-bold text-white">Junior R&D Programmer</h3>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-xs font-semibold">2016 - 2017 (Jakarta Selatan)</span>
+                        </div>
+                        <div class="text-sm font-semibold text-slate-300 mb-4">PT Inet Global Indo</div>
+                        <ul class="text-xs sm:text-sm text-slate-400 space-y-2 list-disc list-inside leading-relaxed">
+                            <li>Mengembangkan aplikasi web dan backend untuk klien software house, termasuk pemeliharaan dan pengamanan portal resmi Kepolisian Republik Indonesia (<strong>Polri.go.id</strong>).</li>
+                            <li>Meneliti, merancang, dan membuat prototipe IoT, termasuk sistem motion detection terintegrasi dengan kamera CCTV untuk pemantauan dan pengambilan gambar otomatis.</li>
+                            <li>Membangun solusi Proof-of-Concept (PoC) dengan mengintegrasikan perangkat keras, sensor, database, dan aplikasi software.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Continuous Learning / Certifications -->
+        <section class="py-16 bg-slate-900/60 border-t border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <!-- Education -->
+                    <div class="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 print-block">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-white text-base">Pendidikan Formal</h3>
+                                <span class="text-xs text-slate-400">Bachelor Degree</span>
+                            </div>
+                        </div>
+                        <div class="border-l-2 border-brand-500 pl-3">
+                            <div class="font-semibold text-white text-sm">Sarjana Sistem Informasi (S.Kom / S.SI)</div>
+                            <div class="text-xs text-slate-300">STT Bina Tunggal, Bekasi, Indonesia &bull; Lulus 2022</div>
+                        </div>
+                    </div>
+
+                    <!-- Certifications -->
+                    <div class="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 print-block">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-white text-base">Sertifikasi & Pelatihan Terverifikasi</h3>
+                                <span class="text-xs text-slate-400">Continuous Upskilling</span>
+                            </div>
+                        </div>
+                        <ul class="text-xs text-slate-300 space-y-2">
+                            <li class="flex items-center justify-between border-b border-slate-800/80 pb-1.5">
+                                <span><strong>Odoo Technical Training</strong> &bull; Falinwa</span>
+                                <span class="text-slate-400 text-[11px]">2025</span>
+                            </li>
+                            <li class="flex items-center justify-between border-b border-slate-800/80 pb-1.5">
+                                <span><strong>Career Vision & Mastering Self Leadership</strong> &bull; Cicom Brains</span>
+                                <span class="text-slate-400 text-[11px]">2025</span>
+                            </li>
+                            <li class="flex items-center justify-between border-b border-slate-800/80 pb-1.5">
+                                <span><strong>English Course (Pre-Intermediate)</strong> &bull; LIA Grogol</span>
+                                <span class="text-slate-400 text-[11px]">2025</span>
+                            </li>
+                            <li class="flex items-center justify-between">
+                                <span><strong>Effective Communication</strong> &bull; Cicom Brains</span>
+                                <span class="text-slate-400 text-[11px]">2024</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call To Action / Contact Section -->
+        <section class="py-20 bg-gradient-to-b from-slate-950 to-slate-900 border-t border-slate-800 no-print">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-600 to-indigo-600 mx-auto flex items-center justify-center text-white mb-6 shadow-xl shadow-brand-500/20">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                </div>
+                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-white mb-4">
+                    Tertarik Berkolaborasi atau Mendiskusikan Proyek?
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8 max-w-2xl mx-auto">
+                    Saya terbuka untuk peran <strong>Senior .NET Developer, Backend Specialist, System Analyst, atau Tech Lead</strong> yang membutuhkan arsitektur sistem stabil dan otomasi proses bisnis bernilai tinggi.
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-4">
+                    <a href="https://wa.me/6285773406474?text=Halo%20Mas%20Agung,%20saya%20tertarik%20dengan%20profil%20dan%20portofolio%20Anda." target="_blank" class="px-7 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-sm shadow-lg shadow-brand-500/30 transition-all flex items-center gap-2">
+                        <span>Kirim Pesan WhatsApp</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                    <a href="mailto:agungbrillian89@gmail.com" class="px-7 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold text-sm transition-all flex items-center gap-2">
+                        <span>Email Saya Langsung</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-slate-950 border-t border-slate-900 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>&copy; 2026 Agung Brillian. Designed for Senior Technical Recruitment.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
